@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+
+import Login from './views/Login/Login.vue'
+import Signup from './views/Login/Signup.vue'
+
+import Dashboard from './views/Dashboard/Dashboard.vue'
+import Test from './views/Dashboard/Test.vue'
 
 Vue.use(Router)
 
@@ -9,9 +14,30 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/dashboard',
+      component: Dashboard
+    },
+    {
+      path: '/dashboard/test',
+      component: Test
+    },
+    {
       path: '/',
-      name: 'home',
-      component: Home
+      redirect: "/login",
+      beforeEnter: (to, from, next) => {
+        if (to == "/login") {
+          this.$store.commit("setDrawer", false)
+          next
+        }
+      }
+    },
+    {
+      path: '/login',
+      component: Login
+    },
+    {
+      path: '/signup',
+      component: Signup
     },
     {
       path: '/about',
