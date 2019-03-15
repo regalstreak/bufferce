@@ -5,7 +5,7 @@ import Login from './views/Login/Login.vue'
 import Signup from './views/Login/Signup.vue'
 
 import Dashboard from './views/Dashboard/Dashboard.vue'
-import Test from './views/Dashboard/Test.vue'
+import System from './views/Dashboard/System/System.vue'
 
 Vue.use(Router)
 
@@ -14,12 +14,12 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/dashboard',
-      component: Dashboard
+      path: '/dashboard/system/:systemId',
+      component: System
     },
     {
-      path: '/dashboard/test',
-      component: Test
+      path: '/dashboard',
+      component: Dashboard
     },
     {
       path: '/',

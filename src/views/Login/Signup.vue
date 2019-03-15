@@ -36,7 +36,7 @@
             chips
             single-line
             solo
-            hint="What are the target regions"
+            hint="Labs"
           ></v-select>
         </flex>
         <v-flex>
@@ -62,6 +62,7 @@
 export default {
   data() {
     return {
+      e7: [],
       labs: ["515", "516", "517", "518", "519"]
     };
   }
